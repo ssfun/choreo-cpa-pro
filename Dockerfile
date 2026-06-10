@@ -1,6 +1,8 @@
 FROM sfun/cliproxyapi-pro:latest
 
-RUN apk add --no-cache ca-certificates proxychains-ng
+RUN apk add --no-cache ca-certificates proxychains-ng \
+    && apk upgrade --no-cache \
+    && update-ca-certificates
 
 ENV TZ=Asia/Shanghai
 ENV USAGE_DATA_DIR=/tmp/CLIProxyAPI/usage
